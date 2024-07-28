@@ -1,0 +1,21 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <title>•¤»((¯♥¯))«¤• pokeghost</title>
+        {% set css %}
+        {% include "style.css" %}
+        {% endset %} <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="description" content="Pokeghost's homepage">
+        <meta name="keywords" content="">
+        <style>
+            {{css | cssmin | safe}}</style>
+    </head>
+    <body>
+        <main>
+            {% block content %}
+                {{ content | safe }}
+            {% endblock content %}
+        </main>
+    </body>
+</html>

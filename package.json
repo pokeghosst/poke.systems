@@ -1,0 +1,13 @@
+{
+  "name": "pokeghost.org",
+  "description": "",
+  "scripts": {
+    "build": "npx @11ty/eleventy",
+    "dev": "npx @11ty/eleventy --serve"
+  },
+  "license": "AGPL-3.0",
+  "dependencies": {
+    "@11ty/eleventy": "^2.0.1",
+    "clean-css": "^5.3.3"
+  }
+}
