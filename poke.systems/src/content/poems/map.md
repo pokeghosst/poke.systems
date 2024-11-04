@@ -1,6 +1,6 @@
 ---
 title: Map
-#layout: layouts/poem.njk
+date: 2022-01-20
 ---
 
 I draw roads on an empty map

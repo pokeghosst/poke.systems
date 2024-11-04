@@ -1,8 +1,7 @@
 ---
 title: I want to pet a bumblebee
-#layout: layouts/poem.njk
+date: 2022-01-20
 ---
-
 I want to pet a bumblebee
 Is that too much to ask?
 It's round and soft and actually

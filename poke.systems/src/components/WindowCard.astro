@@ -3,10 +3,32 @@ import { Image } from "astro:assets";
 
 import crossIcon from "../images/cross.svg";
 
-const { title, borderless = false, class: className, ...rest } = Astro.props;
+interface Props {
+  title: string;
+  borderless?: boolean;
+  widthContent?: boolean;
+  toolbarItems?: string[];
+  class?: string;
+}
+
+const {
+  title,
+  borderless = false,
+  widthContent = false,
+  toolbarItems,
+  class: className,
+  ...rest
+} = Astro.props;
 ---
 
-<div class:list={["window", { borderless: borderless }, className]} {...rest}>
+<div
+  class:list={[
+    "window",
+    { borderless: borderless, "width-content": widthContent },
+    className,
+  ]}
+  {...rest}
+>
   <div class="header">
     <div class="title">{title}</div>
     <div class="header-buttons">
@@ -15,12 +37,25 @@ const { title, borderless = false, class: className, ...rest } = Astro.props;
       </div>
     </div>
   </div>
+  {
+    toolbarItems && (
+      <div class="toolbar">
+        {toolbarItems.map((item) => (
+          <span>{item}</span>
+        ))}
+      </div>
+    )
+  }
   <div class="content">
     <slot />
   </div>
 </div>
 
 <style>
+  .width-content {
+    width: max-content;
+  }
+
   .window {
     border: 2px solid var(--border-grey);
     box-shadow: 2px 1px 0 var(--border-grey);
@@ -34,6 +69,7 @@ const { title, borderless = false, class: className, ...rest } = Astro.props;
   .title {
     padding: 0.5rem;
     flex-grow: 1;
+    cursor: default;
   }
 
   .header-buttons {
@@ -43,15 +79,55 @@ const { title, borderless = false, class: className, ...rest } = Astro.props;
     align-items: center;
   }
 
-  .close-btn {
-  }
-
   .content {
     padding: 2rem;
+    overflow-y: auto;
+    max-height: 60vh;
+  }
+
+  .toolbar {
+    width: 100%;
+    border-bottom: 2px solid var(--border-grey);
+    display: inline-flex;
+  }
+
+  .toolbar span {
+    padding: 0.5rem;
+  }
+
+  .toolbar span::first-letter {
+    text-decoration: underline;
+  }
+
+  .toolbar span:hover {
+    background-color: var(--border-grey);
+    cursor: default;
   }
 
   .borderless {
     border: none;
     box-shadow: none;
+  }
+
+  ::-webkit-scrollbar {
+    width: 12px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background-color: var(--border-grey);
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background-color: var(--bg-color);
+    border-radius: 6px;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background-color: var(--bg-color);
+  }
+
+  * {
+    scrollbar-width: thin;
+    scrollbar-color: var(--border-grey) var(--bg-color);
   }
 </style>

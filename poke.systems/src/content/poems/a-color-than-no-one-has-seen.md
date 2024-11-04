@@ -1,8 +1,7 @@
 ---
 title: A color that no one has seen
-#layout: layouts/poem.njk
+date: 2022-01-20
 ---
-
 Last night I had a dream
 About a color that no one has seen.
 I try to explain it -- alas, in vain.

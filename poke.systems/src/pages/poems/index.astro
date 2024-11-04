@@ -1,0 +1,53 @@
+---
+import { Image } from "astro:assets";
+
+import { getCollection } from "astro:content";
+
+import Global from "../../layouts/Global.astro";
+
+import StartMenu from "../../components/StartMenu.astro";
+import WindowCard from "../../components/WindowCard.astro";
+
+import wordpad from "../../images/wordpad.png";
+import Container from "../../components/Container.astro";
+
+const allPoems = await getCollection("poems");
+---
+
+<Global>
+  <Container
+    ><WindowCard title="Poems" widthContent>
+      <div class="poems">
+        {
+          allPoems.map((poem) => (
+            <div class="poem">
+              <a href={`/poems/${poem.slug}`}>
+                <Image src={wordpad} alt="wordpad" />
+                <p>{poem.slug}.txt</p>
+              </a>
+            </div>
+          ))
+        }
+      </div>
+    </WindowCard></Container
+  >
+  <StartMenu />
+</Global>
+
+<style>
+  .poems {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 20px;
+  }
+
+  .poem {
+    max-width: 120px;
+    text-align: center;
+    overflow-wrap: break-word;
+  }
+
+  .poem img {
+    margin-bottom: 6px;
+  }
+</style>

@@ -1,6 +1,6 @@
 ---
 title: Seen
-#layout: layouts/poem.njk
+date: 2022-01-20
 ---
 
 “How have you been?”

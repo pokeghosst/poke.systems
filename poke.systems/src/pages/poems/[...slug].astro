@@ -1,0 +1,37 @@
+---
+import { getCollection } from "astro:content";
+
+import Global from "../../layouts/Global.astro";
+
+import Container from "../../components/Container.astro";
+import StartMenu from "../../components/StartMenu.astro";
+import WindowCard from "../../components/WindowCard.astro";
+
+export async function getStaticPaths() {
+  const blogEntries = await getCollection("poems");
+  return blogEntries.map((entry) => ({
+    params: { slug: entry.slug },
+    props: { entry },
+  }));
+}
+
+const { entry } = Astro.props;
+const { Content } = await entry.render();
+---
+
+<Global>
+  <Container>
+    <WindowCard
+      title={entry.data.title}
+      widthContent
+      toolbarItems={["File", "Edit", "Search", "Help"]}
+    >
+      <pre>
+            <Content />
+        </pre>
+    </WindowCard>
+  </Container>
+  <StartMenu />
+</Global>
+
+<style></style>

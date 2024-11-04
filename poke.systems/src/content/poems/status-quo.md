@@ -1,6 +1,6 @@
 ---
 title: Status quo
-#layout: layouts/poem.njk
+date: 2022-01-20
 ---
 
 Nothing ventured, nothing gained;

@@ -1,6 +1,6 @@
 ---
 title: Byte array
-#layout: layouts/poem.njk
+date: 2022-01-20
 ---
 
 Oh, trans-humanists, rejoice—
