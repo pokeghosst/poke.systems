@@ -1,7 +1,6 @@
 ---
-tags: poems
 title: Things
-layout: layouts/poem.njk
+#layout: layouts/poem.njk
 ---
 
 I like things.

@@ -1,7 +1,6 @@
 ---
-tags: poems
 title: A color that no one has seen
-layout: layouts/poem.njk
+#layout: layouts/poem.njk
 ---
 
 Last night I had a dream

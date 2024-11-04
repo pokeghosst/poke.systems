@@ -1,7 +1,6 @@
 ---
-tags: poems
 title: Guilty pleasure
-layout: layouts/poem.njk
+#layout: layouts/poem.njk
 ---
 
 The pleasure is mine

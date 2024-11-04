@@ -1,7 +1,6 @@
 ---
-tags: poems
 title: Seen
-layout: layouts/poem.njk
+#layout: layouts/poem.njk
 ---
 
 “How have you been?”

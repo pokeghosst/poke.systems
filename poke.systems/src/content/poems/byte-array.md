@@ -1,7 +1,6 @@
 ---
-tags: poems
 title: Byte array
-layout: layouts/poem.njk
+#layout: layouts/poem.njk
 ---
 
 Oh, trans-humanists, rejoice—

@@ -1,7 +1,6 @@
 ---
-tags: poems
 title: I want
-layout: layouts/poem.njk
+#layout: layouts/poem.njk
 ---
 
 I want the hand that you hold to be mine.

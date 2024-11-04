@@ -1,0 +1,57 @@
+---
+import { Image } from "astro:assets";
+
+const allPoems = await Astro.glob("../content/poems/*.md");
+
+import Global from "../layouts/Global.astro";
+
+import WindowCard from "../components/WindowCard.astro";
+import StartMenu from "../components/StartMenu.astro";
+
+import wordpad from "../images/wordpad.png";
+---
+
+<Global>
+  <div class="container">
+    <WindowCard title="Poems">
+      <div class="poems">
+        {
+          allPoems.map((poem) => (
+            <div class="poem">
+              <Image src={wordpad} alt="wordpad" />
+              <p>{poem.frontmatter.title}</p>
+            </div>
+          ))
+        }
+      </div>
+    </WindowCard>
+  </div>
+  <StartMenu />
+</Global>
+
+<style>
+  .container {
+    padding-top: 64px;
+    max-width: 1268px;
+    margin: auto;
+    //display: flex;
+    //align-items: center;
+    //justify-content: center;
+  }
+
+  .poems {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    gap: 20px;
+  }
+
+  .poem {
+    max-width: 120px;
+    text-align: center;
+    overflow-wrap: break-word;
+  }
+
+  .poem img {
+    margin-bottom: 6px;
+  }
+</style>

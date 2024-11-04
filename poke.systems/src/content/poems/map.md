@@ -1,7 +1,6 @@
 ---
-tags: poems
 title: Map
-layout: layouts/poem.njk
+#layout: layouts/poem.njk
 ---
 
 I draw roads on an empty map

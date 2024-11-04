@@ -1,7 +1,6 @@
 ---
-tags: poems
 title: I want to pet a bumblebee
-layout: layouts/poem.njk
+#layout: layouts/poem.njk
 ---
 
 I want to pet a bumblebee

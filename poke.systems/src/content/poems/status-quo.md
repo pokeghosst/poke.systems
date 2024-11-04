@@ -1,7 +1,6 @@
 ---
-tags: poems
 title: Status quo
-layout: layouts/poem.njk
+#layout: layouts/poem.njk
 ---
 
 Nothing ventured, nothing gained;

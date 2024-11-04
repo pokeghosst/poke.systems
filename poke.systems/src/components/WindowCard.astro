@@ -1,0 +1,57 @@
+---
+import { Image } from "astro:assets";
+
+import crossIcon from "../images/cross.svg";
+
+const { title, borderless = false, class: className, ...rest } = Astro.props;
+---
+
+<div class:list={["window", { borderless: borderless }, className]} {...rest}>
+  <div class="header">
+    <div class="title">{title}</div>
+    <div class="header-buttons">
+      <div class="close-btn">
+        <Image src={crossIcon} alt="cross icon" />
+      </div>
+    </div>
+  </div>
+  <div class="content">
+    <slot />
+  </div>
+</div>
+
+<style>
+  .window {
+    border: 2px solid var(--border-grey);
+    box-shadow: 2px 1px 0 var(--border-grey);
+  }
+
+  .header {
+    border-bottom: 2px solid var(--border-grey);
+    display: flex;
+  }
+
+  .title {
+    padding: 0.5rem;
+    flex-grow: 1;
+  }
+
+  .header-buttons {
+    padding: 0 0.5rem;
+    border-left: 2px solid var(--border-grey);
+    display: flex;
+    align-items: center;
+  }
+
+  .close-btn {
+  }
+
+  .content {
+    padding: 2rem;
+  }
+
+  .borderless {
+    border: none;
+    box-shadow: none;
+  }
+</style>

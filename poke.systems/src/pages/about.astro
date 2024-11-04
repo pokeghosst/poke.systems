@@ -1,0 +1,129 @@
+---
+import { Image } from "astro:assets";
+
+import Global from "../layouts/Global.astro";
+
+import WindowCard from "../components/WindowCard.astro";
+
+import wordpad from "../images/wordpad.png";
+import crossIcon from "../images/cross.svg";
+import docs from "../images/docs.png";
+import briefcase from "../images/briefcase.png";
+import StartMenu from "../components/StartMenu.astro";
+
+const navItems = [
+  { icon: wordpad, name: "Poem list", href: "/poems" },
+  { icon: docs, name: "Blog", href: "" },
+  { icon: docs, name: "Commonplace", href: "" },
+  { icon: briefcase, name: "Projects", href: "" },
+];
+---
+
+<Global>
+  <div class="container bento">
+    <WindowCard title="Profile" class="wide">
+      <div class="profile">
+        <img
+          src="https://gravatar.com/avatar/006539217bbbd05dc07385475b8cb3ea1d8f48087e408fce755ed32a1e18f3d4"
+          alt="poke"
+        />
+        <div>
+          <p><strong>pokeghost</strong></p>
+          <p>[Online]</p>
+          <p>Internet ghost doing ghost things on the Internet.</p>
+        </div>
+      </div>
+    </WindowCard>
+    <WindowCard title="Interests">
+      <div class="interests">
+        Coding, poetry, manga, spending time in nature, making sense of the
+        world.
+      </div>
+    </WindowCard>
+    <WindowCard title="Navigation" class="tall">
+      <ul class="navList">
+        {
+          navItems.map((item) => (
+            <li>
+              <a href={item.href}>
+                <Image src={item.icon} alt={item.name} />
+                {item.name}
+              </a>
+            </li>
+          ))
+        }
+      </ul>
+    </WindowCard>
+    <WindowCard title="This club is Lit!" class="wide">
+      <div class="club">
+        <p>A REAL literature club, in Discord!</p>
+        <a class="button" href="https://gosuto.art/dlc" target="_blank"
+          >LEARN MORE AND JOIN NOW!</a
+        >
+      </div>
+    </WindowCard>
+  </div>
+  <StartMenu />
+</Global>
+
+<style>
+  .container {
+    margin: 0 auto;
+    padding: 2rem;
+    max-width: 726px;
+    display: flex;
+    justify-content: center;
+  }
+
+  .bento {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+  }
+
+  .navList {
+    list-style: none;
+  }
+
+  .navList li a {
+    display: flex;
+    gap: 16px;
+    align-items: center;
+  }
+
+  .navList li:not(:last-child) {
+    margin-bottom: 12px;
+  }
+
+  .window.large {
+    grid-column: span 2;
+    grid-row: span 2;
+  }
+
+  .window.wide {
+    grid-column: span 2;
+  }
+
+  .window.tall {
+    grid-row: span 2;
+  }
+
+  .profile {
+    display: flex;
+    justify-content: center;
+    gap: 18px;
+  }
+
+  .interests {
+    display: flex;
+    justify-content: center;
+  }
+
+  .club {
+    text-align: center;
+  }
+
+  .club p {
+    margin-bottom: 1rem;
+  }
+</style>
