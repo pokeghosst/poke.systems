@@ -13,7 +13,8 @@ const { title, scanlines = true } = Astro.props;
     <meta name="generator" content={Astro.generator} />
     <title>{title}</title>
   </head>
-  <body class:list={[{ scanlines: scanlines }]}>
+  <body>
+    <div class:list={[{ scanlines: scanlines }]}></div>
     <slot />
   </body>
 </html>

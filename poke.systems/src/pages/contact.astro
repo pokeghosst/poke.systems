@@ -1,0 +1,46 @@
+---
+import StartMenu from "../components/StartMenu.astro";
+import WindowCard from "../components/WindowCard.astro";
+import Global from "../layouts/Global.astro";
+---
+
+<Global>
+  <div class="container">
+    <WindowCard title="Contact">
+      <p>Thank you for your interest in PokeSystems.</p><br />
+      <p>
+        You can contact us via the following channels (response not guaranteed):
+      </p><br />
+      <p>
+        <ol>
+          <li>Pigeon mail</li>
+          <li>Smoke signals</li>
+          <li>Ouija board</li>
+          <li>Telegraph</li>
+          <li>Discord (ask for `pokeghost`)</li>
+          <li>Electronic mail: pokeghost [at] disroot.org</li>
+        </ol>
+      </p>
+    </WindowCard>
+  </div>
+  <StartMenu />
+</Global>
+
+<style>
+  .container {
+    margin: 0 auto;
+    padding: 2rem;
+    max-width: 726px;
+    display: flex;
+    justify-content: center;
+    font-size: 18px;
+  }
+
+  ol {
+    margin-left: 1rem;
+  }
+
+  li:not(:last-of-type) {
+    margin-bottom: 4px;
+  }
+</style>

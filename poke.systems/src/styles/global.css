@@ -39,9 +39,22 @@ body {
   background: var(--bg-color);
 }
 
+a {
+  text-decoration: underline;
+}
+
+a:hover:not(.button) {
+  text-decoration: none;
+  /* outline: 1px dotted rgba(255, 255, 255, 0.185); */
+}
+
 .scanlines {
   overflow: hidden;
-  position: relative;
+  position: fixed;
+  width: 100vw;
+  height: 100vh;
+  pointer-events: none;
+  z-index: 1;
 }
 
 .scanlines:before,
@@ -91,9 +104,9 @@ div {
   margin: 0;
   padding: 0;
 }
-div.scanlines {
+/* div.scanlines {
   position: absolute;
-}
+} */
 div .jpg {
   width: 100vw;
   height: 100vh;

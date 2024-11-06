@@ -1,0 +1,203 @@
+---
+import { Image } from "astro:assets";
+
+import Global from "../layouts/Global.astro";
+
+import SpotifyPlayer from "../components/SpotifyPlayer";
+import StartMenu from "../components/StartMenu.astro";
+import WindowCard from "../components/WindowCard.astro";
+
+import briefcase from "../images/briefcase.png";
+import chart from "../images/chart.png";
+import docs from "../images/docs.png";
+import fax from "../images/fax.png";
+import help from "../images/help.png";
+import msn from "../images/msn.png";
+import newspaper from "../images/newspaper.png";
+import program from "../images/program.png";
+import users from "../images/users.png";
+import wordpad from "../images/wordpad.png";
+
+import eyes from "../images/buttons/eyes.gif";
+import haiku from "../images/buttons/haiku.png";
+import bestViewed from "../images/buttons/best-viewed.jpg";
+import DiscordStatus from "../components/DiscordStatus";
+
+const navItems = [
+  // { icon: briefcase, name: "Projects", href: "" },
+  { icon: wordpad, name: "Poem list", href: "/poems" },
+  {
+    icon: newspaper,
+    name: "Newsletter",
+    href: "https://pokeghost.substack.com/",
+  },
+  {
+    icon: help,
+    name: "Knowledge base",
+    href: "https://pokeghost.tiddlyhost.com/",
+  },
+  { icon: docs, name: "Blog", href: "https://pokeghost.bearblog.dev/" },
+  {
+    icon: chart,
+    name: "For investors",
+    href: "https://buymeacoffee.com/pokegh0st",
+  },
+  { icon: fax, name: "Contact", href: "/contact" },
+];
+
+const socialItems = [
+  { icon: program, name: "GitHub", href: "https://github.com/pokeghosst" },
+  { icon: users, name: "Xitter", href: "https://x.com/pokeghosst" },
+  { icon: msn, name: "Bsky", href: "https://bsky.app/profile/pokeghost.org" },
+];
+
+const buttons = [
+  { image: haiku, alt: "haiku goated frfr" },
+  { image: eyes, alt: "look!" },
+  { image: bestViewed, alt: "i'm not making this shi mobile-friendly" },
+];
+---
+
+<Global>
+  <div class="container bento">
+    <WindowCard title="Profile" class="wide">
+      <div class="profile">
+        <img
+          src="https://gravatar.com/avatar/006539217bbbd05dc07385475b8cb3ea1d8f48087e408fce755ed32a1e18f3d4"
+          alt="poke"
+        />
+        <div>
+          <p class="username"><strong>pokeghost</strong></p>
+          <DiscordStatus />
+        </div>
+      </div>
+    </WindowCard>
+    <WindowCard title="Interests">
+      <div class="interests">
+        Coding, poetry, manga, spending time in nature, making sense of the
+        world.
+      </div>
+    </WindowCard>
+    <WindowCard title="Navigation" class="tall">
+      <ul class="navList">
+        {
+          navItems.map((item) => (
+            <li>
+              <a href={item.href}>
+                <Image src={item.icon} alt={item.name} />
+                {item.name}
+              </a>
+            </li>
+          ))
+        }
+      </ul>
+    </WindowCard>
+    <WindowCard title="This club is Lit!" class="wide">
+      <div class="club">
+        <p>A REAL literature club, in Discord!</p>
+        <a class="button" href="https://gosuto.art/dlc" target="_blank"
+          >LEARN MORE AND JOIN NOW!</a
+        >
+      </div>
+    </WindowCard>
+    <WindowCard title="Now playing">
+      <SpotifyPlayer client:load />
+    </WindowCard>
+    <WindowCard title="Explore the PokeNet">
+      <ul class="navList">
+        {
+          socialItems.map((item) => (
+            <li>
+              <a href={item.href}>
+                <Image src={item.icon} alt={item.name} />
+                {item.name}
+              </a>
+            </li>
+          ))
+        }
+      </ul>
+    </WindowCard>
+    <WindowCard title="FYI" class="full">
+      <div class="web-buttons">
+        {buttons.map((button) => <Image src={button.image} alt={button.alt} />)}
+      </div>
+    </WindowCard>
+  </div>
+  <StartMenu />
+</Global>
+
+<style>
+  .container {
+    margin: 0 auto;
+    padding: 2rem;
+    max-width: 726px;
+    display: flex;
+    justify-content: center;
+  }
+
+  .bento {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+  }
+
+  .navList {
+    list-style: none;
+  }
+
+  .navList li a {
+    display: flex;
+    gap: 16px;
+    align-items: center;
+  }
+
+  .navList li:not(:last-child) {
+    margin-bottom: 12px;
+  }
+
+  .window.large {
+    grid-column: span 2;
+    grid-row: span 2;
+  }
+
+  .window.wide {
+    grid-column: span 2;
+  }
+
+  .window.tall {
+    grid-row: span 2;
+  }
+
+  .window.full {
+    grid-column: span 3;
+  }
+
+  .profile {
+    display: flex;
+    justify-content: center;
+    gap: 18px;
+  }
+
+  .profile img {
+    width: 80px;
+    height: 80px;
+  }
+
+  .interests {
+    display: flex;
+    justify-content: center;
+  }
+
+  .club {
+    text-align: center;
+  }
+
+  .club p {
+    margin-bottom: 1rem;
+  }
+
+  .web-buttons {
+    display: flex;
+    gap: 4px;
+  }
+</style>

@@ -1,0 +1,7 @@
+.clock {
+  padding: 6px;
+  border: 2px solid;
+  border-color: var(--border-darker) var(--border-grey) var(--border-grey)
+    var(--border-darker);
+  cursor: default;
+}
