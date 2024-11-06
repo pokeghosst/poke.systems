@@ -68,7 +68,7 @@ const buttons = [
         />
         <div>
           <p class="username"><strong>pokeghost</strong></p>
-          <DiscordStatus />
+          <DiscordStatus client:only="solid-js" />
         </div>
       </div>
     </WindowCard>
@@ -101,7 +101,7 @@ const buttons = [
       </div>
     </WindowCard>
     <WindowCard title="Now playing">
-      <SpotifyPlayer client:load />
+      <SpotifyPlayer client:only="solid-js" />
     </WindowCard>
     <WindowCard title="Explore the PokeNet">
       <ul class="navList">

@@ -1,4 +1,4 @@
-import { createResource, Show } from "solid-js";
+import { createResource, onMount, Show } from "solid-js";
 
 import "./DiscordStatus.css";
 
