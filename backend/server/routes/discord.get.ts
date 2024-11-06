@@ -14,7 +14,7 @@ export default defineEventHandler(async () => {
   const member = await guild.members.fetch(user);
 
   return {
-    status: member.presence.status,
-    activities: member.presence.activities,
+    status: member?.presence?.status ?? "offline",
+    activities: member?.presence?.activities,
   };
 });
