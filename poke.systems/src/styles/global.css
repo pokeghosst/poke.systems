@@ -1,3 +1,9 @@
+*, *:before, *:after {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
 :root {
   --bg-color: #1b1b1b;
   --border-grey: #bcbcbc;
@@ -21,7 +27,6 @@ pre {
 * {
   padding: 0;
   margin: 0;
-  box-sizing: border-box;
   color: white;
   font-family: alagard, sans-serif;
 }
@@ -37,6 +42,8 @@ body {
   width: 100vw;
   position: relative;
   background: var(--bg-color);
+  /*background: url("/bg2.jpeg") no-repeat center center fixed;*/
+  /*background-size: cover;*/
 }
 
 a {

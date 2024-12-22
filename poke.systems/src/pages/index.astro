@@ -1,19 +1,243 @@
 ---
-import GlowingLogo from "../components/GlowingLogo.astro";
+import { Image } from "astro:assets";
 
-import "../styles/global.css";
+import Global from "../layouts/Global.astro";
+
+import StartMenu from "../components/StartMenu.astro";
+import WindowCard from "../components/WindowCard.astro";
+
+import chart from "../images/chart.png";
+import fax from "../images/fax.png";
+import msn from "../images/msn.png";
+import program from "../images/program.png";
+import users from "../images/users.png";
+import wordpad from "../images/wordpad.png";
+
+const navItems = [
+  // { icon: briefcase, name: "Projects", href: "" },
+  { icon: wordpad, name: "Poem list", href: "/poems" },
+  {
+    icon: chart,
+    name: "For investors",
+    href: "https://buymeacoffee.com/pokegh0st",
+  },
+  { icon: fax, name: "Contact", href: "/contact" },
+];
+
+const socialItems = [
+  { icon: program, name: "GitHub", href: "https://github.com/pokeghosst" },
+  { icon: users, name: "Xitter", href: "https://x.com/pokeghosst" },
+  { icon: msn, name: "Bsky", href: "https://bsky.app/profile/pokeghost.org" },
+];
 ---
 
-<html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <meta name="viewport" content="width=device-width" />
-    <meta name="generator" content={Astro.generator} />
-    <title>Astro</title>
-  </head>
-  <body>
-    <div class="scanlines"></div>
-    <a href="/home"><GlowingLogo /></a>
-  </body>
-</html>
+<Global>
+  <div class="container bento">
+    <WindowCard title="Profile" class="wide">
+      <div class="profile">
+        <div class="pfp">
+          <img
+            src="https://gravatar.com/avatar/006539217bbbd05dc07385475b8cb3ea1d8f48087e408fce755ed32a1e18f3d4"
+            alt="poke"
+          />
+        </div>
+        <div class="status-container">
+          <p class="username">
+            <span class="status-circle green"></span>
+            <strong>pokeghost</strong>
+          </p>
+          <div class="status">
+            <p>Internet ghost doing ghost things on the internet.</p>
+          </div>
+          <!--<p class="status"><span class="status-circle green"></span></p>-->
+          <!--<p>-->
+          <!--  <em>Internet ghost doing ghost things on the internet.</em>-->
+          <!--</p>-->
+        </div>
+      </div>
+      <ul class="navList socials">
+        {
+          socialItems.map((item) => (
+            <li>
+              <a href={item.href}>
+                <Image src={item.icon} alt={item.name} />
+                {item.name}
+              </a>
+            </li>
+          ))
+        }
+      </ul>
+    </WindowCard>
+    <!--<WindowCard title="Interests">-->
+    <!--  <div class="interests">-->
+    <!--    Coding, poetry, manga, spending time in nature, making sense of the-->
+    <!--    world.-->
+    <!--  </div>-->
+    <!--</WindowCard>-->
+    <WindowCard title="Navigation">
+      <ul class="navList">
+        {
+          navItems.map((item) => (
+            <li>
+              <a href={item.href}>
+                <Image src={item.icon} alt={item.name} />
+                {item.name}
+              </a>
+            </li>
+          ))
+        }
+      </ul>
+    </WindowCard>
+    <WindowCard title="This club is Lit!" class="wide">
+      <div class="club">
+        <p>A REAL literature club, in Discord!</p>
+        <a class="button" href="https://gosuto.art/dlc" target="_blank"
+          >LEARN MORE AND JOIN NOW!</a
+        >
+      </div>
+    </WindowCard>
+  </div>
+  <StartMenu />
+</Global>
+
+<style>
+  .container {
+    margin: 0 auto;
+    padding: 2rem;
+    max-width: 726px;
+    display: flex;
+    justify-content: center;
+  }
+
+  .bento {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+  }
+
+  .navList {
+    list-style: none;
+  }
+
+  .navList li a {
+    display: flex;
+    gap: 16px;
+    align-items: center;
+  }
+
+  .navList li:not(:last-child) {
+    margin-bottom: 12px;
+  }
+
+  .window.large {
+    grid-column: span 2;
+    grid-row: span 2;
+  }
+
+  .window.wide {
+    grid-column: span 2;
+  }
+
+  .window.tall {
+    grid-row: span 2;
+  }
+
+  .window.full {
+    grid-column: span 3;
+  }
+
+  .profile {
+    display: flex;
+    gap: 14px;
+  }
+
+  .profile img {
+    width: 80px;
+    height: 80px;
+  }
+
+  .interests {
+    display: flex;
+    justify-content: center;
+  }
+
+  .club {
+    text-align: center;
+  }
+
+  .club p {
+    margin-bottom: 1rem;
+  }
+
+  .web-buttons {
+    display: flex;
+    gap: 4px;
+  }
+
+  .username {
+    display: flex;
+    align-items: center;
+    gap: 2px;
+  }
+
+  .status-circle {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    margin: 9px;
+    display: block;
+  }
+
+  .status-circle.green {
+    background-color: #00ff00;
+    box-shadow: 0 0 6px 2px #00ff00;
+  }
+
+  .pfp,
+  .pfp img {
+    border: 2px solid var(--border-grey);
+  }
+
+  .pfp {
+    width: 82px;
+    height: 82px;
+    padding: 4px;
+  }
+
+  .status {
+    border: 2px solid var(--border-grey);
+    padding: 10px;
+    margin: 8px;
+    font-style: italic;
+    position: relative;
+  }
+
+  .status::before,
+  .status::after {
+    content: "";
+    position: absolute;
+    top: 28px;
+    left: -18px;
+  }
+
+  .status::before {
+    border-width: 8px;
+    border-style: solid;
+    border-color: transparent var(--border-grey) transparent transparent;
+  }
+
+  .status::after {
+    border-width: 7px;
+    border-style: solid;
+    border-color: transparent var(--bg-color) transparent transparent;
+    top: 29px;
+    left: -14px;
+  }
+
+  .socials {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 22px;
+    margin-bottom: -8px;
+  }
+</style>
