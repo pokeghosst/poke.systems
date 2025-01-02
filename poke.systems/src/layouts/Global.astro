@@ -14,7 +14,7 @@ const { title, scanlines = true } = Astro.props;
     <title>{title}</title>
   </head>
   <body>
-    <div class:list={[{ scanlines: scanlines }]}></div>
+    <div id="scanlineContainer" class:list={[{ scanlines: scanlines }]}></div>
     <slot />
   </body>
 </html>

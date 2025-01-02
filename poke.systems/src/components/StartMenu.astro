@@ -1,10 +1,14 @@
 ---
-import Clock from "./Clock";
+import Clock from "./Clock.svelte";
+import ScanlinesToggle from "./ScanlinesToggle.svelte";
 ---
 
 <div class="menu">
-  <a class="button" href="/">Start</a>
-  <Clock client:only="solid-js" />
+  <div class="start-lockup">
+    <a class="button" href="/">Start</a>
+    <ScanlinesToggle client:only="svelte" />
+  </div>
+  <Clock client:only="svelte" />
 </div>
 
 <style>
@@ -19,6 +23,11 @@ import Clock from "./Clock";
     border-top: 2px solid var(--border-grey);
     padding: 8px;
     background-color: var(--bg-color);
+  }
+
+  .start-lockup {
+    display: flex;
+    gap: 8px;
   }
 
   a {
