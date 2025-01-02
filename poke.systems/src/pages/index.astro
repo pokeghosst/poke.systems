@@ -5,6 +5,7 @@ import Global from "../layouts/Global.astro";
 
 import StartMenu from "../components/StartMenu.astro";
 import WindowCard from "../components/WindowCard.astro";
+import Terminal from "../components/Terminal.svelte";
 
 import chart from "../images/chart.png";
 import fax from "../images/fax.png";
@@ -69,12 +70,6 @@ const socialItems = [
         }
       </ul>
     </WindowCard>
-    <!--<WindowCard title="Interests">-->
-    <!--  <div class="interests">-->
-    <!--    Coding, poetry, manga, spending time in nature, making sense of the-->
-    <!--    world.-->
-    <!--  </div>-->
-    <!--</WindowCard>-->
     <WindowCard title="Navigation">
       <ul class="navList">
         {
@@ -89,7 +84,16 @@ const socialItems = [
         }
       </ul>
     </WindowCard>
-    <WindowCard title="This club is Lit!" class="wide">
+    <WindowCard title="Interests">
+      <div class="interests">
+        Poetry, manga, computational linguistics, spending time in nature,
+        making sense of the world.
+      </div>
+    </WindowCard>
+    <WindowCard title="Terminal" class="large">
+      <Terminal client:only="svelte" />
+    </WindowCard>
+    <WindowCard title="This club is Lit!" class="">
       <div class="club">
         <p>A REAL literature club, in Discord!</p>
         <a class="button" href="https://gosuto.art/dlc" target="_blank"
