@@ -14,10 +14,16 @@ import program from "../images/program.png";
 import users from "../images/users.png";
 import wordpad from "../images/wordpad.png";
 import briefcase from "../images/briefcase.png";
+import pokebook from "../images/pokebook.png";
+import Star from "../images/icons/star.svg";
 
 const navItems = [
   { icon: wordpad, name: "Poem list", href: "/poems" },
-  { icon: briefcase, name: "Projects", href: "/projects" },
+  {
+    icon: briefcase,
+    name: "Book of Knowledge",
+    href: "https://pokeghost.tiddlyhost.com/",
+  },
   {
     icon: chart,
     name: "For investors",
@@ -84,15 +90,6 @@ const socialItems = [
         }
       </ul>
     </WindowCard>
-    <WindowCard title="Interests">
-      <div class="interests">
-        Poetry, manga, computational linguistics, spending time in nature,
-        making sense of the world.
-      </div>
-    </WindowCard>
-    <WindowCard title="Terminal" class="large">
-      <Terminal client:only="svelte" />
-    </WindowCard>
     <WindowCard title="This club is Lit!" class="">
       <div class="club">
         <p>A REAL literature club, in Discord!</p>
@@ -101,6 +98,26 @@ const socialItems = [
         >
       </div>
     </WindowCard>
+    <WindowCard title="Poke!Book" class="wide">
+      <div class="pokebook">
+        <div class="pokebook-lockup">
+          <Image src={pokebook} height={72} width={72} alt="PokeBook icon" />
+          <div>
+            <p class="pokebook-name">PokeBook 3</p>
+            {
+              Array(5)
+                .fill("")
+                .map(() => <Star fill="currentColor" height={12} width={12} />)
+            }
+            <p>The best poem notebook in the Milky Way</p>
+          </div>
+        </div>
+        <a class="button" href="https://www.pokebook.app/">START WRITING</a>
+      </div>
+    </WindowCard>
+    <!--<WindowCard title="Terminal" class="large">-->
+    <!--  <Terminal client:only="svelte" />-->
+    <!--</WindowCard>-->
   </div>
   <StartMenu />
 </Global>
@@ -161,9 +178,29 @@ const socialItems = [
     height: 80px;
   }
 
-  .interests {
+  .pokebook {
+    margin: -16px;
     display: flex;
-    justify-content: center;
+    flex-direction: column;
+  }
+
+  .pokebook .button {
+    text-align: center;
+  }
+
+  .pokebook-lockup {
+    display: flex;
+    gap: 14px;
+    align-items: center;
+    margin-bottom: 16px;
+  }
+
+  .pokebook img {
+    border-radius: 12px;
+  }
+
+  .pokebook-name {
+    font-size: 18px;
   }
 
   .club {
@@ -201,6 +238,7 @@ const socialItems = [
   .pfp,
   .pfp img {
     border: 2px solid var(--border-grey);
+    background-color: var(--bg-color);
   }
 
   .pfp {
