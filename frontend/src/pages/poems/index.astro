@@ -37,7 +37,7 @@ const allPoems = await getCollection("poems");
 <style>
   .poems {
     display: grid;
-    grid-template-columns: repeat(5, 1fr);
+    grid-template-columns: repeat(auto-fill, minmax(90px, 1fr));
     gap: 20px;
   }
 
@@ -49,5 +49,13 @@ const allPoems = await getCollection("poems");
 
   .poem img {
     margin-bottom: 6px;
+  }
+
+  @media screen and (max-width: 375px) {
+    .poems {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
   }
 </style>
