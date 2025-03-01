@@ -5,7 +5,7 @@ import Global from "../layouts/Global.astro";
 
 import StartMenu from "../components/StartMenu.astro";
 import WindowCard from "../components/WindowCard.astro";
-import Terminal from "../components/Terminal.svelte";
+import DiscordStatus from "../components/DiscordStatus.svelte";
 
 import chart from "../images/chart.png";
 import fax from "../images/fax.png";
@@ -50,17 +50,7 @@ const socialItems = [
           />
         </div>
         <div class="status-container">
-          <p class="username">
-            <span class="status-circle green"></span>
-            <strong>pokeghost</strong>
-          </p>
-          <div class="status">
-            <p>Internet ghost doing ghost things on the internet.</p>
-          </div>
-          <!--<p class="status"><span class="status-circle green"></span></p>-->
-          <!--<p>-->
-          <!--  <em>Internet ghost doing ghost things on the internet.</em>-->
-          <!--</p>-->
+          <DiscordStatus client:only="svelte" />
         </div>
       </div>
       <ul class="navList socials">
@@ -171,6 +161,7 @@ const socialItems = [
   .profile {
     display: flex;
     gap: 14px;
+    min-height: 96px;
   }
 
   .profile img {
@@ -216,25 +207,6 @@ const socialItems = [
     gap: 4px;
   }
 
-  .username {
-    display: flex;
-    align-items: center;
-    gap: 2px;
-  }
-
-  .status-circle {
-    width: 6px;
-    height: 6px;
-    border-radius: 50%;
-    margin: 9px;
-    display: block;
-  }
-
-  .status-circle.green {
-    background-color: #00ff00;
-    box-shadow: 0 0 6px 2px #00ff00;
-  }
-
   .pfp,
   .pfp img {
     border: 2px solid var(--border-grey);
@@ -247,40 +219,14 @@ const socialItems = [
     padding: 4px;
   }
 
-  .status {
-    border: 2px solid var(--border-grey);
-    padding: 10px;
-    margin: 8px;
-    font-style: italic;
-    position: relative;
-  }
-
-  .status::before,
-  .status::after {
-    content: "";
-    position: absolute;
-    top: 28px;
-    left: -18px;
-  }
-
-  .status::before {
-    border-width: 8px;
-    border-style: solid;
-    border-color: transparent var(--border-grey) transparent transparent;
-  }
-
-  .status::after {
-    border-width: 7px;
-    border-style: solid;
-    border-color: transparent var(--bg-color) transparent transparent;
-    top: 29px;
-    left: -14px;
-  }
-
   .socials {
     display: flex;
     justify-content: space-around;
     margin-top: 22px;
     margin-bottom: -8px;
+  }
+
+  .status-container {
+    flex-grow: 1;
   }
 </style>

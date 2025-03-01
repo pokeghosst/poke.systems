@@ -13,6 +13,8 @@ export default defineEventHandler(async () => {
   const guild = await client.guilds.fetch(useRuntimeConfig().discordGuildId);
   const member = await guild.members.fetch(user);
 
+  // await new Promise((resolve) => setTimeout(resolve, 2000));
+
   return {
     status: member?.presence?.status ?? "offline",
     activities: member?.presence?.activities,
