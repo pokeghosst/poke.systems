@@ -1,37 +1,36 @@
 <script lang="ts">
-    import contrast from "../images/contrast.png"
-    import {onMount} from "svelte";
+  import contrast from "../images/contrast.png";
+  import { onMount } from "svelte";
 
-    const scanlineContainer = document.getElementById("scanlineContainer")
-    let scanlinesActive = (localStorage.getItem("scanlines") === "true")
+  const scanlineContainer = document.getElementById("scanlineContainer");
+  let scanlinesActive = localStorage.getItem("scanlines") === "true";
 
-    function onclick() {
-        if (scanlineContainer) {
-            scanlineContainer.classList.toggle("scanlines")
-            localStorage.setItem("scanlines", (!scanlinesActive).toString())
-        }
+  function onclick() {
+    if (scanlineContainer) {
+      scanlineContainer.classList.toggle("scanlines");
+      localStorage.setItem("scanlines", (!scanlinesActive).toString());
     }
+  }
 
-    onMount(() => {
-        if (!scanlinesActive && !!scanlineContainer) {
-            console.log('removing scanlines...')
-            scanlineContainer.classList.remove("scanlines")
-        }
-    })
+  onMount(() => {
+    if (!scanlinesActive && !!scanlineContainer) {
+      scanlineContainer.classList.add("scanlines");
+    }
+  });
 </script>
 
 <button class="button" {onclick}>
-    <img alt="Scanlines toggle button" src={contrast.src} />
+  <img alt="Scanlines toggle button" src={contrast.src} />
 </button>
 
 <style>
-    .button {
-        padding: 0;
-        width: 37px;
-    }
+  .button {
+    padding: 0;
+    width: 37px;
+  }
 
-    img {
-        width: 20px;
-        height: 20px;
-    }
+  img {
+    width: 20px;
+    height: 20px;
+  }
 </style>
