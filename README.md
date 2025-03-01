@@ -1,15 +1,7 @@
-# pokeghost.org
-
-To install dependencies:
-
-```bash
-bun install
+```                 __                          __                     
+    ____  ____  / /_____    _______  _______/ /____  ____ ___  _____
+   / __ \/ __ \/ //_/ _ \  / ___/ / / / ___/ __/ _ \/ __ `__ \/ ___/
+  / /_/ / /_/ / ,< /  __/ (__  ) /_/ (__  ) /_/  __/ / / / / (__  ) 
+ / .___/\____/_/|_|\___(_)____/\__, /____/\__/\___/_/ /_/ /_/____/  
+/_/                           /____/                                
 ```
-
-To run:
-
-```bash
-bun run index.ts
-```
-
-This project was created using `bun init` in bun v1.1.18. [Bun](https://bun.sh) is a fast all-in-one JavaScript runtime.
