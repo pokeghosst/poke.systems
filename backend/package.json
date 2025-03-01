@@ -1,5 +1,5 @@
 {
-  "private": true,
+  "name": "pokesystems-backend",
   "scripts": {
     "build": "nitro build",
     "dev": "nitro dev",
@@ -10,7 +10,6 @@
     "nitropack": "latest"
   },
   "dependencies": {
-    "@spotify/web-api-ts-sdk": "^1.2.0",
     "discord.js": "^14.16.3"
   }
 }

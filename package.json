@@ -1,13 +1,15 @@
 {
-  "name": "pokeghost.org",
+  "name": "poke.systems",
+  "version": "0.1.0",
   "description": "",
+  "main": "index.js",
   "scripts": {
-    "build": "npx @11ty/eleventy",
-    "dev": "npx @11ty/eleventy --serve"
+    "dev": "pnpm -r run dev",
+    "build": "pnpm -r run build",
+    "frontend": "pnpm --filter frontend run dev",
+    "backend": "pnpm --filter backend run dev"
   },
-  "license": "AGPL-3.0",
-  "dependencies": {
-    "@11ty/eleventy": "^2.0.1",
-    "clean-css": "^5.3.3"
-  }
+  "keywords": [],
+  "author": "",
+  "license": "AGPL-3.0"
 }
