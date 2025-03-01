@@ -124,31 +124,35 @@
     box-shadow: 0 0 6px 2px #ff0000;
   }
 
-  .offline {
-    margin: 6px 0;
-  }
-
   .username {
     display: flex;
     align-items: center;
     gap: 2px;
   }
 
-  @keyframes pulse {
-    0% {
-      transform: scale(0.99);
-      opacity: 0.9;
-      box-shadow: 0 0 4px 1px var(--status-color, currentColor);
+  @media screen and (max-width: 375px) {
+    .status {
+      justify-content: center;
     }
-    50% {
-      transform: scale(1.01);
-      opacity: 1;
-      box-shadow: 0 0 7px 2px var(--status-color, currentColor);
+
+    .status-message::before,
+    .status-message::after {
+      top: -17px;
+      left: 50%;
     }
-    100% {
-      transform: scale(0.99);
-      opacity: 0.9;
-      box-shadow: 0 0 4px 1px var(--status-color, currentColor);
+
+    .status-message::before {
+      border-color: transparent transparent var(--border-grey) transparent;
+    }
+
+    .status-message::after {
+      border-color: transparent transparent var(--bg-color) transparent;
+      top: -13px;
+      left: 50.5%;
+    }
+
+    .status-message {
+      margin: 18px 8px 0 8px;
     }
   }
 </style>

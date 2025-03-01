@@ -105,9 +105,6 @@ const socialItems = [
         <a class="button" href="https://www.pokebook.app/">START WRITING</a>
       </div>
     </WindowCard>
-    <!--<WindowCard title="Terminal" class="large">-->
-    <!--  <Terminal client:only="svelte" />-->
-    <!--</WindowCard>-->
   </div>
   <StartMenu />
 </Global>
@@ -115,7 +112,7 @@ const socialItems = [
 <style>
   .container {
     margin: 0 auto;
-    padding: 2rem;
+    padding: 2rem 2rem calc(2rem + 52px) 2rem;
     max-width: 726px;
     display: flex;
     justify-content: center;
@@ -135,6 +132,10 @@ const socialItems = [
     display: flex;
     gap: 16px;
     align-items: center;
+  }
+
+  .socials li a {
+    gap: 12px;
   }
 
   .navList li:not(:last-child) {
@@ -221,6 +222,7 @@ const socialItems = [
 
   .socials {
     display: flex;
+    flex-wrap: wrap;
     justify-content: space-around;
     margin-top: 22px;
     margin-bottom: -8px;
@@ -228,5 +230,30 @@ const socialItems = [
 
   .status-container {
     flex-grow: 1;
+  }
+
+  @media screen and (max-width: 674px) {
+    .bento {
+      display: flex;
+      flex-direction: column;
+    }
+  }
+
+  @media screen and (max-width: 425px) {
+    .socials {
+      gap: 6px 10px;
+      justify-content: space-evenly;
+    }
+
+    .socials li a {
+      gap: 8px;
+    }
+  }
+
+  @media screen and (max-width: 375px) {
+    .profile {
+      flex-direction: column;
+      align-items: center;
+    }
   }
 </style>
