@@ -1,4 +1,6 @@
 <script>
+  import Typewriter from "./Typewriter.svelte";
+
   let statusData = $state(null);
 
   let status = $derived(statusData?.status);
@@ -41,11 +43,11 @@
   {#if statusData}
     {#if activities.length > 0}
       <div class="status-message">
-        <p>{customStatus}</p>
+        <Typewriter text={customStatus} />
       </div>
     {:else}
       <div class="status-message">
-        <p>Current whereabouts or activity unknown.</p>
+        <Typewriter />
       </div>
     {/if}
   {:else}
