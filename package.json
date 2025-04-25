@@ -2,6 +2,9 @@
   "name": "poke.systems",
   "version": "0.1.0",
   "description": "",
+  "keywords": [],
+  "author": "",
+  "license": "AGPL-3.0",
   "main": "index.js",
   "scripts": {
     "dev": "pnpm -r run dev",
@@ -9,7 +12,7 @@
     "frontend": "pnpm --filter frontend run dev",
     "backend": "pnpm --filter backend run dev"
   },
-  "keywords": [],
-  "author": "",
-  "license": "AGPL-3.0"
+  "engines": {
+    "node": ">=22.12.0"
+  }
 }

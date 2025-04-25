@@ -15,6 +15,9 @@ export default defineNitroConfig({
       target: "esnext",
     },
   },
+  experimental: {
+    websocket: true,
+  },
   routeRules: {
     "/**": {
       cors: true,

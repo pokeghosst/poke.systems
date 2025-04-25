@@ -1,6 +1,4 @@
 <script>
-  import { onMount } from "svelte";
-
   let statusData = $state(null);
 
   let status = $derived(statusData?.status);
@@ -9,12 +7,13 @@
     activities.find((activity) => activity.type === 4)?.state,
   );
 
-  onMount(async () => {
-    const response = await fetch(
-      import.meta.env.PUBLIC_BACKEND_URL + "/discord",
-    );
-    statusData = await response.json();
-  });
+  const eventSource = new EventSource(
+    `${import.meta.env.PUBLIC_BACKEND_URL}/discord`,
+  );
+
+  eventSource.onmessage = (event) => {
+    statusData = JSON.parse(event.data);
+  };
 
   function getStatusClass(status) {
     switch (status) {
@@ -46,7 +45,7 @@
       </div>
     {:else}
       <div class="status-message">
-        <p>Somewhere out there, doing something.</p>
+        <p>Current whereabouts or activity unknown.</p>
       </div>
     {/if}
   {:else}
