@@ -1,0 +1,160 @@
+---
+const title = "Discord Literature Club!";
+const features = [
+  "Regular poem prompts",
+  "Fun and engaging activities",
+  "Events and festivals",
+  "Warm, welcoming, and candid atmosphere",
+  "Judgement-free space to share and get inspired",
+];
+const applyUrl =
+  "https://cloud.disroot.org/apps/forms/s/CDy8ScqADTRmfw2MfZMm6sHC";
+---
+
+<section>
+  <h1 class="main-title shadow-outline">
+    {title}
+  </h1>
+
+  <div class="intro-text">
+    <p class="main-text">
+      Welcome to the Discord Literature Club! Our goal is to provide all writers
+      and literature enthusiasts with a safe, welcoming, inclusive, and friendly
+      environment to share their passion for literature, grow, and just have
+      fun!
+    </p>
+  </div>
+
+  <div class="features-container">
+    {
+      features.map((feature) => (
+        <h1 class="feature-title shadow-outline">- {feature}</h1>
+      ))
+    }
+  </div>
+
+  <p class="apply-link shadow-outline">
+    <a href={applyUrl}>Apply now!</a>
+  </p>
+
+  <img src="/grid.png" alt="Decorative grid" class="grid-decoration" />
+  <img src="/book3.png" alt="Book decoration" class="book-decoration book-3" />
+  <img src="/book1.png" alt="Book decoration" class="book-decoration book-1" />
+  <img src="/book2.png" alt="Book decoration" class="book-decoration book-2" />
+  <img src="/badge3.png" alt="Badge decoration" class="badge-decoration" />
+</section>
+
+<style>
+  h1 {
+    padding: 0;
+    margin: 0;
+  }
+
+  body {
+    background-image: url("/gradient1.png");
+    background-position: center;
+    background-size: auto;
+  }
+
+  a,
+  a:visited {
+    color: white;
+  }
+
+  .main-title {
+    margin-top: 30px;
+    font-size: 4em;
+    text-align: center;
+    font-family: Arial;
+    font-weight: bold;
+    font-style: italic;
+  }
+
+  .main-text {
+    width: 60%;
+    margin: 0 auto;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 1.5em;
+    text-align: center;
+    border: 1px solid black;
+    background-color: white;
+    padding: 1em;
+  }
+
+  .intro-text {
+    margin-top: 30px;
+  }
+
+  .features-container {
+    width: 80%;
+    margin: auto;
+  }
+
+  .feature-title {
+    margin-top: 30px;
+    font-size: 3em;
+    text-align: center;
+    font-family: Arial;
+    font-weight: bold;
+    font-style: italic;
+  }
+
+  .apply-link {
+    margin-top: 60px;
+    font-size: 3em;
+    text-align: center;
+    font-family: Arial;
+    font-weight: bold;
+    font-style: italic;
+  }
+
+  .grid-decoration {
+    transform: rotate(180deg);
+    z-index: -1;
+    position: absolute;
+    width: 500px;
+    top: -200px;
+    left: -20px;
+  }
+
+  .book-decoration {
+    z-index: -1;
+    position: absolute;
+  }
+
+  .book-3 {
+    width: 220px;
+    bottom: 25px;
+    right: 10px;
+  }
+
+  .book-1 {
+    width: 200px;
+    bottom: 100px;
+    right: 20px;
+  }
+
+  .book-2 {
+    width: 180px;
+    bottom: 160px;
+    right: 30px;
+  }
+
+  .badge-decoration {
+    z-index: -1;
+    position: absolute;
+    width: 180px;
+    bottom: 100px;
+    left: -90px;
+  }
+
+  .shadow-outline {
+    text-shadow:
+      1px 1px 0 black,
+      -1px -1px 0 black,
+      1px -1px 0 black,
+      -1px 1px 0 black,
+      5px 4px rgba(0, 0, 0, 0.45);
+    color: white;
+  }
+</style>

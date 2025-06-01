@@ -1,4 +1,6 @@
-*, *:before, *:after {
+*,
+*:before,
+*:after {
   box-sizing: border-box;
 }
 
@@ -12,6 +14,13 @@
   font-family: alagard;
   src: url("/alagard.ttf");
   font-weight: normal;
+}
+
+@font-face {
+  font-family: Arial;
+  src: url("/arialcebolditalic.woff");
+  font-weight: bold;
+  font-style: italic;
 }
 
 p {
