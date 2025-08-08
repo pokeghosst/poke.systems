@@ -17,6 +17,7 @@ import music from "../images/music.png";
 import newspaper from "../images/newspaper_mail.png";
 import pokebook from "../images/pokebook.png";
 import Star from "../images/icons/star.svg";
+import Keys from "../images/keys.png";
 
 const navItems = [
   { icon: wordpad, name: "Poems", href: "/poems" },
@@ -102,6 +103,15 @@ const socialItems = [
           </div>
         </div>
         <a class="button" href="https://www.pokebook.app/">START WRITING</a>
+      </div>
+    </WindowCard>
+    <WindowCard title="PGP">
+      <div class="keys">
+        <Image src={Keys} alt="keys icon" />
+        <div>
+          <p>Key ID: E08E6412302A9721F</p>
+        <a href="/E08E6412302A9721F.txt">[Download]</a>
+        </div>
       </div>
     </WindowCard>
   </div>
@@ -229,6 +239,17 @@ const socialItems = [
 
   .status-container {
     flex-grow: 1;
+  }
+
+  .keys {
+    margin: -12px;
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+  }
+
+  .keys p {
+    
   }
 
   @media screen and (max-width: 674px) {
